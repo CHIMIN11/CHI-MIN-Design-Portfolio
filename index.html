@@ -36,6 +36,7 @@ a{color:#FF2D8D}a:hover{color:#FF6BAE}
 .page-corner:hover svg,.page-corner:focus-visible svg{transform:translate(-3px,-3px) scale(1.12);transform-origin:100% 100%;transition:transform .25s ease}
 
 .swipe-ui{display:none}
+.nb-snap,.nb-swipe{display:none}
 @media (orientation: portrait) and (max-width: 1024px){
   [data-name="HOME / Desktop"]{justify-content:center !important;align-items:stretch !important;gap:14px}
   .stage-scroller{width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;padding:0 14px;box-sizing:border-box;flex:none}
@@ -60,9 +61,16 @@ a{color:#FF2D8D}a:hover{color:#FF6BAE}
   .ov-wrap img[style*="height: 4"],.ov-wrap img[style*="height: 3"]{height:auto !important;aspect-ratio:4/3}
   [data-name="NAV / Work Switcher"]{bottom:14px !important;max-width:calc(100vw - 24px)}
   [data-name="BTN / Prev Work"],[data-name="BTN / Next Work"]{display:none}
-  .nb-wrap{pointer-events:auto !important;overflow-x:auto;justify-content:center !important;align-items:flex-start !important;padding:64px 14px 84px !important;-webkit-overflow-scrolling:touch}
-  .nb-wrap > section{width:760px !important;flex:none}
-  .nb-wrap > nav{position:sticky;left:0}
+  .nb-wrap{pointer-events:auto !important;overflow-x:auto;overflow-y:hidden;justify-content:flex-start !important;align-items:flex-start !important;gap:14px !important;padding:70px 14px 88px !important;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scroll-padding:0 14px;scrollbar-width:none}
+  .nb-wrap::-webkit-scrollbar{display:none}
+  .nb-wrap > section{width:calc((100vw - 28px) * 2) !important;height:min(calc(100svh - 230px), 700px) !important;aspect-ratio:auto !important;flex:none}
+  .nb-snap{display:block !important;position:absolute;top:0;width:50%;height:1px;scroll-snap-align:start;pointer-events:none}
+  .nb-wrap .pg-l,.nb-wrap .pg-r{overflow-y:auto !important;padding:22px 20px 18px !important;-webkit-overflow-scrolling:touch}
+  .nb-wrap .hand p{font-size:16px !important;line-height:1.4 !important}
+  .nb-wrap .ink-h{font-size:25px !important;line-height:1.05 !important}
+  .nb-wrap > nav{position:sticky;left:14px;width:calc(100vw - 28px);justify-content:center;flex-wrap:wrap}
+  .nb-swipe{display:inline !important;width:100%;text-align:center;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.16em;color:#8E94A0}
+  .ov-open .swipe-ui{display:none !important}
 }
 .lift-d{display:none}
 .is-day .lift-d{display:block}
